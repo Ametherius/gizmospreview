@@ -277,6 +277,17 @@ body {
     color: var(--primary-color);
 }
 
+.custom-popover {
+    --bs-popover-bg: var(--secondary-color);
+    --bs-popover-color: var(--light-color);
+    --bs-popover-border-color: var(--primary-color);
+    --bs-popover-header-bg: var(--primary-color); 
+    --bs-popover-header-color: var(--secondary-color);
+    --bs-popover-border-radius: var(--border-radius);
+    --bs-popover-body-bg: var(--secondary-color);
+    --bs-popover-body-color: var(--primary-color);
+}
+
 .service-card h3 {
     margin: var(--spacing-md) 0;
     font-size: 1.5rem;
