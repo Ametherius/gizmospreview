@@ -7,7 +7,7 @@
     --dark-color: #2c3e50;
     --text-color: #333;
     --text-light: #666;
-    --transparent-color: rgba(201, 140, 51, 0.5);
+    --transparent-color: rgba(201, 141, 51, 0.452);
     --transparent-primary-color: rgba(26, 45, 60, 0.4);
 
     /* Typography Variables */
@@ -54,7 +54,7 @@ body {
 }
 
 .background-image {
-    background-image: url('./img/backgroundimage.png');
+    background-image: url('./img/gizmoslogo.png');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -161,7 +161,6 @@ body {
 
 /* Hero Section */
 .hero {
-    background-image: linear-gradient(to right, rgba(201, 140, 51, 0.7), rgba(201, 140, 51, 0.8));
     color: var(--primary-color);
     padding-top: 150px;
     padding-bottom: 150px;
@@ -195,13 +194,12 @@ body {
 }
 
 /* About Section */
-.about-section {
-    background: linear-gradient(to right, rgba(201, 140, 51, 0.7), rgba(201, 140, 51, 0.8));
-}
 
 .about-card {
-    padding: var(--spacing-xxl);
+    padding: var(--spacing-md);
     border-radius: var(--border-radius);
+    background-color: var(--transparent-color);
+    backdrop-filter: blur(10px);
 }
 
 /* Page Header */
@@ -220,7 +218,7 @@ body {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
     padding: var(--spacing-sm) var(--spacing-lg);
-    color: var(--secondary-color);
+    color: white;
     font-weight: 600;
     transition: var(--transition-fast);
 }
@@ -266,7 +264,6 @@ body {
 /* Service Cards */
 
 #services-preview {
-    background: linear-gradient(to right, rgba(201, 140, 51, 0.7), rgba(201, 140, 51, 0.8));
     padding: var(--spacing-lg);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: var(--transition-fast);
@@ -348,7 +345,6 @@ body {
     padding: var(--spacing-lg);
     border-radius: var(--border-radius);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(to right, rgba(201, 140, 51, 0.7), rgba(201, 140, 51, 0.8));
 }
 
 .testimonials h2 {
@@ -581,7 +577,6 @@ body {
 
 /* Gizmos Steamer Section */
 .steamer-section {
-    background: linear-gradient(to right, rgba(201, 140, 51, 0.7), rgba(201, 140, 51, 0.8));
     padding: var(--spacing-lg);
     margin-top: 70px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -648,7 +643,6 @@ body {
 
 /* Contact Form */
 .quote-container {
-    background: linear-gradient(to right, rgba(201, 140, 51, 0.7), rgba(201, 140, 51, 0.8));
     padding: var(--spacing-lg);
     margin-top: 80px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -699,7 +693,6 @@ body {
 }
 
 .review-container {
-    background: linear-gradient(to right, rgba(201, 140, 51, 0.7), rgba(201, 140, 51, 0.8));
     padding: var(--spacing-lg);
     margin-top: 80px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -743,9 +736,6 @@ body {
 }
 
 /* What We Steam Section */
-.what-we-steam-section {
-    background: linear-gradient(to right, rgba(201, 140, 51, 0.7), rgba(201, 140, 51, 0.8));
-}
 
 .what-we-steam-section h1 {
     color: var(--primary-color);
@@ -817,7 +807,7 @@ footer p.developer a {
     .background-image {
         top: 0;
         height: 100vh;
-        background-image: url('./img/tabletlogo.png');
+        background-image: url('./img/gizmoslogo.png');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
