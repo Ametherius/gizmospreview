@@ -1,6 +1,7 @@
+import { testimonials } from "./testimonials.js";
+
 const form = document.getElementById("quoteForm");
-const testimonialsContainer = document.querySelector(".testimonials-container");
-import { testimonials } from "/testimonials.js";
+let testimonialsContainer;
 if (form) {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -147,6 +148,11 @@ if (reviewForm) {
 }
 
 const displayTestimonials = function (testimonials) {
+  testimonialsContainer = document.querySelector(".testimonials-container");
+  if (!testimonialsContainer) {
+    console.error("Testimonials container not found");
+    return;
+  }
   testimonialsContainer.innerHTML = "";
   testimonials.forEach(function (testimonial) {
     const html = `
@@ -166,4 +172,12 @@ const displayTestimonials = function (testimonials) {
     testimonialsContainer.insertAdjacentHTML("afterbegin", html);
   });
 };
-displayTestimonials(testimonials);
+
+// Wait for DOM to be ready and then display testimonials
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => {
+    displayTestimonials(testimonials);
+  });
+} else {
+  displayTestimonials(testimonials);
+}
