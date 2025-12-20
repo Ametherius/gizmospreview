@@ -1,7 +1,53 @@
-import { testimonials } from "./testimonials.js";
+import { testimonials } from "./data/testimonials.js";
+import { faq } from "./data/faq.js";
+import { launchBundles } from "./data/bundles.js";
+import { roomPrices } from "./data/roomprices.js";
+import { specialty } from "./data/specialty.js";
+import { addons } from "./data/addons.js";
+import { subs } from "./data/subs.js";
+
+const navLinks = [
+  {
+    name: "Home",
+    link: "./",
+  },
+  {
+    name: "What We Steam",
+    link: "./what-we-steam",
+  },
+  {
+    name: "Gizmo's Steamer",
+    link: "./gizmos-steamer",
+  },
+  {
+    name: "Services",
+    link: "./pricing",
+  },
+  {
+    name: "Gallery",
+    link: "./gallery",
+  },
+  {
+    name: "Testimonials",
+    link: "./testimonials",
+  },
+  {
+    name: "FAQ's",
+    link: "./faq",
+  },
+  {
+    name: "Request a Quote",
+    link: "./quote",
+  },
+  {
+    name: "Leave a Review",
+    link: "./reviews",
+  },
+];
 
 const form = document.getElementById("quoteForm");
 let testimonialsContainer;
+let galleryItemsContainer;
 if (form) {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -181,3 +227,158 @@ if (document.readyState === "loading") {
 } else {
   displayTestimonials(testimonials);
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const faqAccordion = document.querySelector(".faq-accordion");
+
+  const displayFAQ = function (faq) {
+    faqAccordion.textContent = "";
+    faq.forEach((faqs, i) => {
+      const show = i === 0 ? "show" : "";
+      const expanded = i === 0 ? "true" : "false";
+      const html = `
+                <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#flush-collapse${i}"
+                aria-expanded="true"
+                aria-controls="flush-collapse${i}"
+              >
+                <strong>${faqs.question}</strong>
+              </button>
+            </h2>
+            <div
+              class="accordion-collapse collapse ${show}"
+              id="flush-collapse${i}"
+              data-bs-parent="#faq-accordion"
+            >
+              <div class="accordion-body">
+                ${faqs.answer}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      faqAccordion.insertAdjacentHTML("beforeend", html);
+    });
+  };
+  displayFAQ(faq);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const navLinksList = document.querySelector(".navbar-nav");
+
+  const displayNavLinks = function (links) {
+    navLinksList.textContent = "";
+    links.forEach((link) => {
+      const html = `
+          <li class="nav-item">
+            <a class="nav-link" href="${link.link}">${link.name}</a>
+          </li>
+      `;
+      navLinksList.insertAdjacentHTML("beforeend", html);
+    });
+  };
+  displayNavLinks(navLinks);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const mobileNav = document.querySelector(".mobile-nav");
+
+  const displayMobileNav = function (links) {
+    mobileNav.textContent = "";
+    links.forEach((link) => {
+      const html = `
+          <li class="nav-item">
+            <a class="nav-link" href="${link.link}">${link.name}</a>
+          </li>
+      `;
+      mobileNav.insertAdjacentHTML("beforeend", html);
+    });
+  };
+  displayMobileNav(navLinks);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const quickLinks = document.querySelector(".quick-links");
+
+  const displayQuickLinks = function (links) {
+    quickLinks.textContent = "";
+    links.forEach((link) => {
+      const html = `<li><a href="${link.link}">${link.name}</a></li>`;
+      quickLinks.insertAdjacentHTML("beforeend", html);
+    });
+  };
+  displayQuickLinks(navLinks);
+});
+
+const locale = navigator.language;
+const bundleContainer = document.querySelector(".bundle-cards");
+const roomContainer = document.querySelector(".room-cards");
+const specialtyrows = document.querySelector(".specialty-rows");
+const addOnRows = document.querySelector(".add-on-rows");
+
+const displayPriceCards = function (container, array) {
+  container.textContent = "";
+  array.forEach((arr) => {
+    const list = arr.list.map((item) => `<li>${item}</li>`).join("");
+    const html = `
+    <div class="col-md-4">
+            <div class="${arr.style}">
+              <div class="card-header bg-transparent border-0">
+                <i class="${arr.icon}"></i>
+                <h4 class="card-title">${arr.title} - $${arr.price}</h4>
+              </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    ${list}
+                </ul>
+            </div>
+        </div>
+      </div>
+    `;
+    container.insertAdjacentHTML("beforeend", html);
+  });
+};
+
+const subContainer = document.querySelector(".subscriptions");
+const displaySubs = function (array) {
+  subContainer.textContent = "";
+  array.forEach((arr) => {
+    const list = arr.list.map((item) => `<li>${item}</li>`).join("");
+    const html = `
+        <div class="col-md-4">
+          <div class="card sub-card">
+            <div class="card-header">
+              <i class="${arr.icon}"></i><h4 class="card-title">${arr.service}</h4>
+            </div>
+            <div class="card-body">
+              <p class="fst-italic fw-bold">${arr.tagline}</p>
+              <ul class="list-unstyled text-center">${list}</ul>
+            </div>
+          </div>
+        </div>
+    `;
+    subContainer.insertAdjacentHTML("beforeend", html);
+  });
+};
+displaySubs(subs);
+displayPriceCards(roomContainer, roomPrices);
+displayPriceCards(bundleContainer, launchBundles);
+
+const displayPriceTables = function (container, array) {
+  array.forEach((arr) => {
+    const html = `
+            <tr>
+              <td>${arr.service}</td>
+              <td>${arr.price}</td>
+            </tr>
+    `;
+    container.insertAdjacentHTML("beforeend", html);
+  });
+};
+displayPriceTables(specialtyrows, specialty);
+displayPriceTables(addOnRows, addons);
