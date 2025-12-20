@@ -353,7 +353,7 @@ const displaySubs = function (array) {
         <div class="col-md-4">
           <div class="card sub-card">
             <div class="card-header">
-              <i class="${arr.icon}"></i><h4 class="card-title">${arr.service}</h4>
+              <i class="${arr.icon}"></i><h4 class="card-title">${arr.service} - ${arr.price}</h4>
             </div>
             <div class="card-body">
               <p class="fst-italic fw-bold">${arr.tagline}</p>
