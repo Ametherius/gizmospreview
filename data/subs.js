@@ -18,7 +18,7 @@ export const subs = [
     ],
   },
   {
-    service: 'Annual "Home Reset',
+    service: 'Annual "Home Reset"',
     icon: "fa-solid fa-calendar mb-4 fs-1",
     price: "$599/year",
     tagline: "Reset Your Home In Style!",
